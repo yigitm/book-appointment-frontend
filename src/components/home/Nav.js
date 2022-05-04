@@ -1,5 +1,50 @@
 import React from 'react';
+import {
+  FaSignature,
+  FaTwitter,
+  FaFacebookF,
+  FaGooglePlusG,
+  FaVimeoV,
+  FaPinterestP,
+} from 'react-icons/fa';
 
-const Nav = () => <nav className="bg-gray-400 h-12 md:w-1/3">Nav</nav>;
+const Nav = () => (
+  <nav className="h-screen md:w-1/4 flex flex-col justify-between">
+    <div className="flex flex-col">
+      <div className="text-7xl self-center mt-5">
+        <FaSignature />
+      </div>
+
+      <ul className="mt-20 ml-5 text-1xl">
+        <li className="font-extrabold p-4 hover:bg-lime-500 hover:text-white">
+          COURSES
+        </li>
+        <li className="font-extrabold p-4 hover:bg-lime-500 hover:text-white">
+          RESERVE COURSE
+        </li>
+        <li className="font-extrabold p-4 hover:bg-lime-500 hover:text-white">
+          MY COURSES
+        </li>
+        <li className="font-extrabold p-4 hover:bg-lime-500 hover:text-white">
+          ADD COURSE
+        </li>
+        <li className="font-extrabold p-4 hover:bg-lime-500 hover:text-white">
+          DELETE COURSE
+        </li>
+      </ul>
+    </div>
+
+    <div className="flex flex-col items-center">
+      <div className="flex">
+        <FaTwitter className="mr-1" />
+        <FaFacebookF className="mr-1" />
+        <FaGooglePlusG className="mr-1" />
+        <FaVimeoV className="mr-1" />
+        <FaPinterestP className="mr-1" />
+      </div>
+      <p className="text-sm">@2022 microverse-inc</p>
+    </div>
+  </nav>
+);
 
 export default Nav;
