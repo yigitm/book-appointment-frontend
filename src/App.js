@@ -1,15 +1,14 @@
 import React from 'react';
-import Nav from './components/Nav';
-import Courses from './components/Courses';
-import Footer from './components/Footer';
+import { Routes, Route } from 'react-router-dom';
+import Home from './components/home/Home';
+import Detail from './components/detail/Detail';
 import './App.css';
 
 const App = () => (
-  <div className="flex flex-col md:flex-row mb-4">
-    <Nav />
-    <Courses />
-    <Footer />
-  </div>
+  <Routes>
+    <Route path="/courses" element={<Home />} />
+    <Route path="/detail/:id" element={<Detail />} />
+  </Routes>
 );
 
 export default App;
