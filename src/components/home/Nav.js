@@ -11,8 +11,8 @@ import {
 const Nav = () => (
   <nav className="h-screen md:w-1/4 flex flex-col justify-between">
     <div className="flex flex-col">
-      <div className="text-7xl self-center mt-5">
-        <FaSignature />
+      <div className="self-center mt-5">
+        <FaSignature size={70} />
       </div>
 
       <ul className="mt-20 ml-5 text-1xl">

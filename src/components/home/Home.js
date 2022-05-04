@@ -4,11 +4,11 @@ import Courses from './Courses';
 import Footer from '../mobile/Footer';
 
 const Home = () => (
-  <div className="flex flex-col md:flex-row mb-4">
+  <main className="flex flex-col md:flex-row mb-4">
     <Nav />
     <Courses />
     <Footer />
-  </div>
+  </main>
 );
 
 export default Home;
