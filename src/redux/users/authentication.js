@@ -1,6 +1,4 @@
-const SIGN_UP = 'book-appointment/header/SIGN_UP';
-/*const LOGIN = 'book-appointment/header/LOGIN';*/
-
+const SIGN_UP = 'book-appointment/users/SIGN_UP';
 const baseURL = 'http://localhost:3000/api/v1/users';
 
 const initialState = [];
@@ -10,7 +8,7 @@ export const signUp = (state) => ({
   payload: state,
 });
 
-export const postSignUp = async (dispatch) => {
+export const postSignUp = (userInputs) => async (dispatch) => {
   const requestOptions = {
     method: 'POST',
     headers: {
@@ -18,8 +16,8 @@ export const postSignUp = async (dispatch) => {
     },
     body: JSON.stringify({
       user: {
-        username: 'Jane Doe',
-        password: '123456',
+        username: userInputs.username,
+        password: userInputs.password,
       },
     }),
   };
