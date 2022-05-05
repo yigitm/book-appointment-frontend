@@ -7,11 +7,11 @@ import {
   FaVimeoV,
   FaPinterestP,
 } from 'react-icons/fa';
-import { logout } from '../../redux/users/signIn';
 import { useNavigate } from 'react-router-dom';
+import { logout } from '../../redux/users/signIn';
 
 const Nav = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     logout;

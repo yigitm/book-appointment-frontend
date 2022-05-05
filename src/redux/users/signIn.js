@@ -60,9 +60,11 @@ export const postSignUp = (userInputs) => async (dispatch) => {
 const usersReducers = (state = initialState, action) => {
   switch (action.type) {
     case SIGN_UP:
-      return (state = action.payload);
+      state.splice(0, state.length);
+      return [...state, action.payload];
     case LOGIN:
-      return (state = action.payload);
+      state.splice(0, state.length);
+      return [...state, action.payload];
     default:
       return state;
   }

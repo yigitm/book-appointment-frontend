@@ -9,10 +9,10 @@ const UserSign = () => {
   const [message, setMessage] = useState();
   const state = useSelector((state) => state.usersReducers);
   const dispatch = useDispatch();
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (state['error']) setMessage(state['error']);
+    if (state.error) setMessage(state.error);
     if (state.user) navigate('/courses');
   }, [state]);
 
@@ -65,7 +65,7 @@ const UserSign = () => {
           >
             Sign In
           </button>
-          <p className="text-rose-500 ml-5">{message ? message : null}</p>
+          <p className="text-rose-500 ml-5">{message || null}</p>
         </div>
       </div>
     </form>
