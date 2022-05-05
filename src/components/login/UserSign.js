@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { postSignUp } from '../../redux/users/authentication';
 
@@ -6,6 +7,7 @@ const UserSign = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  let navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,6 +17,7 @@ const UserSign = () => {
     };
     console.log(postData);
     dispatch(postSignUp(postData));
+    navigate('/courses');
   };
 
   return (
