@@ -15,6 +15,10 @@ export const login = (state) => ({
   payload: state,
 });
 
+export const logout = () => {
+  TOKEN = '';
+};
+
 export const postLogin = (userInputs) => async (dispatch) => {
   const requestOptions = {
     method: 'POST',
