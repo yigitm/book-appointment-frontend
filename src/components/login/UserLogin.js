@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { postSignUp } from '../../redux/users/signIn';
+import { postLogin } from '../../redux/users/signIn';
 
-const UserSign = () => {
+const UserLogin = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState();
@@ -16,17 +16,17 @@ const UserSign = () => {
     if (state.user) navigate('/courses');
   }, [state]);
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    const postData = {
+    const loginData = {
       username,
       password,
     };
-    dispatch(postSignUp(postData));
+    dispatch(postLogin(loginData));
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleLogin}>
       <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
         <div className="mb-4">
           <label className="block text-grey-darker text-sm font-bold mb-2">
@@ -61,9 +61,9 @@ const UserSign = () => {
           <button
             className="bg-gray-400 hover:bg-lime-500 text-white font-bold py-2 px-4 rounded"
             type="submit"
-            onClick={(e) => handleSubmit(e)}
+            onClick={(e) => handleLogin(e)}
           >
-            Sign In
+            Login
           </button>
           <p className="text-rose-500 ml-5">{message ? message : null}</p>
         </div>
@@ -72,4 +72,4 @@ const UserSign = () => {
   );
 };
 
-export default UserSign;
+export default UserLogin;
