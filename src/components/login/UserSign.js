@@ -1,13 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { postSignUp } from '../../redux/users/authentication';
+import { useSelector, useDispatch } from 'react-redux';
+import { postSignUp, signUp } from '../../redux/users/authentication';
 
 const UserSign = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [message, setMessage] = useState();
+  const state = useSelector((state) => state.usersReducers);
   const dispatch = useDispatch();
   let navigate = useNavigate();
+
+  useEffect(() => {
+    if (state['error']) {
+      setMessage(state['error']);
+    }
+
+    if (state.user) navigate('/courses');
+  }, [state]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,9 +25,7 @@ const UserSign = () => {
       username,
       password,
     };
-    console.log(postData);
     dispatch(postSignUp(postData));
-    navigate('/courses');
   };
 
   return (
@@ -48,11 +56,11 @@ const UserSign = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>
-          <p className="text-red text-xs italic">
+          <p className="text-xs italic">
             Please choose a password minimum 6 characters.
           </p>
         </div>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center items-start">
           <button
             className="bg-gray-400 hover:bg-lime-500 text-white font-bold py-2 px-4 rounded"
             type="submit"
@@ -60,6 +68,7 @@ const UserSign = () => {
           >
             Sign In
           </button>
+          <p className="text-rose-500 ml-5">{message ? message : null}</p>
         </div>
       </div>
     </form>

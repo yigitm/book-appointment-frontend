@@ -29,7 +29,7 @@ export const postSignUp = (userInputs) => async (dispatch) => {
 const usersReducers = (state = initialState, action) => {
   switch (action.type) {
     case SIGN_UP:
-      return action.payload;
+      return (state[0] = action.payload);
     default:
       return state;
   }
