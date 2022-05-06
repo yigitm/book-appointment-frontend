@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { postLogin } from '../../redux/users/signIn';
+import { postLogin, login } from '../../redux/users/signIn';
 
 const UserLogin = () => {
   const [username, setUsername] = useState('');

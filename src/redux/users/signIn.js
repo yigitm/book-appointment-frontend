@@ -1,7 +1,9 @@
 const SIGN_UP = 'book-appointment/users/SIGN_UP';
 const LOGIN = 'book-appointment/users/LOGIN';
+
 const baseURL = 'http://localhost:3000/api/v1/users';
 const loginURL = 'http://localhost:3000/api/v1/login';
+
 let TOKEN = '';
 const initialState = [];
 
@@ -14,10 +16,6 @@ export const login = (state) => ({
   type: LOGIN,
   payload: state,
 });
-
-export const logout = () => {
-  TOKEN = '';
-};
 
 export const postLogin = (userInputs) => async (dispatch) => {
   const requestOptions = {
@@ -60,11 +58,9 @@ export const postSignUp = (userInputs) => async (dispatch) => {
 const usersReducers = (state = initialState, action) => {
   switch (action.type) {
     case SIGN_UP:
-      state.splice(0, state.length);
-      return [...state, action.payload];
+      return Object.assign(action.payload);
     case LOGIN:
-      state.splice(0, state.length);
-      return [...state, action.payload];
+      return Object.assign(action.payload);
     default:
       return state;
   }
