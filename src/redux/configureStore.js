@@ -1,10 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import usersReducers from './users/signIn';
+import featuresReducers from './features';
 
 const reducer = combineReducers({
-  usersReducers,
+  featuresReducers,
 });
 
 const store = createStore(reducer, applyMiddleware(thunk, logger));

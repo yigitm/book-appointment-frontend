@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { FaSignature } from 'react-icons/fa';
-import { mockInfo } from '../mockInfo';
-import { mockText } from '../mockText';
+import { mockInfo } from '../mockData/mockInfo';
+import { mockText } from '../mockData/mockText';
+import { createFalse } from 'typescript';
 
 const Add = () => {
   const [type, setType] = useState('');
@@ -10,6 +11,32 @@ const Add = () => {
   const [summary, setSummary] = useState('');
   const [message, setMessage] = useState();
 
+  const validate = (input) => {
+    let checks = 0;
+    if (input.type == '') checks += 1;
+    if (input.info == '') checks += 1;
+    if (input.name == '') checks += 1;
+    if (input.summary == '') checks += 1;
+    return checks;
+  };
+
+  const handleAdd = (e) => {
+    e.preventDefault();
+    const addData = {
+      type,
+      info,
+      name,
+      summary,
+    };
+
+    if (validate(addData) > 0) {
+      setMessage('Please select all options!');
+    } else {
+      console.log(addData);
+      //dispatch(postAdd(addData));
+    }
+  };
+
   return (
     <form className="flex flex-col items-start ml-9">
       <FaSignature size={70} />
@@ -17,7 +44,7 @@ const Add = () => {
       <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex items-center">
         <p className="mr-5 text-xl text-lime-600">Course Category :</p>
 
-        <select onChange={(e) => setType(e.target.value)}>
+        <select required onChange={(e) => setType(e.target.value)}>
           <option value="Cockpit Course">Pilot Course</option>
           <option value="Cabin Course">Cabin Course</option>
           <option value="Technic Course">Technic Course</option>
@@ -36,6 +63,7 @@ const Add = () => {
         <p className="mr-5 text-xl text-lime-600">Course Info :</p>
 
         <select
+          required
           className="flex flex-col text-black"
           onChange={(e) => setInfo(e.target.value)}
         >

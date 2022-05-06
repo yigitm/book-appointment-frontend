@@ -55,7 +55,7 @@ export const postSignUp = (userInputs) => async (dispatch) => {
   dispatch(signUp(user));
 };
 
-const usersReducers = (state = initialState, action) => {
+const featuresReducers = (state = initialState, action) => {
   switch (action.type) {
     case SIGN_UP:
       return Object.assign(action.payload);
@@ -66,4 +66,4 @@ const usersReducers = (state = initialState, action) => {
   }
 };
 
-export default usersReducers;
+export default featuresReducers;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BsCaretLeft, BsCaretRight } from 'react-icons/bs';
-import { mockImg } from '../mockImage';
+import { mockImg } from '../mockData/mockImage';
 
 const Courses = () => {
   const slideLeft = () => {
@@ -37,7 +37,7 @@ const Courses = () => {
             {mockImg.map((item) => (
               <img
                 key={item.id}
-                className="w-[220px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
+                className="w-[270px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
                 src={item.img}
                 alt="/"
               />

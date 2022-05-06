@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { postSignUp } from '../../redux/users/signIn';
+import { postSignUp } from '../../redux/features';
 import { FaSignature } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ const UserSign = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState();
-  const state = useSelector((state) => state.usersReducers);
+  const state = useSelector((state) => state.featuresReducers);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
