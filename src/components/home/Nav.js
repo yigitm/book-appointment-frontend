@@ -24,7 +24,7 @@ const Nav = () => (
           <Link to="/courses">RESERVE COURSE</Link>
         </li>
         <li className="font-extrabold p-4 hover:bg-lime-500 hover:text-white">
-          <Link to="/courses">ADD COURSE</Link>
+          <Link to="/add">ADD COURSE</Link>
         </li>
         <li className="font-extrabold p-4 hover:bg-lime-500 hover:text-white">
           <Link to="/courses">DELETE COURSE</Link>

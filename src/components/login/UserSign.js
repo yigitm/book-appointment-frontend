@@ -70,7 +70,7 @@ const UserSign = () => {
           </button>
           <Link
             to="/login"
-            className="ml-5 text-xs underline underline-offset-2 decoration-solid hover:text-lime-600"
+            className="ml-5 text-xs underline underline-offset-2 decoration-solid hover:text-lime-600 italic"
           >
             Already signed up go to Login
           </Link>

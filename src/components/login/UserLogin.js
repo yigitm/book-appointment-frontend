@@ -70,7 +70,7 @@ const UserLogin = () => {
           </button>
           <Link
             to="/"
-            className="ml-5 text-xs underline underline-offset-2 decoration-solid hover:text-lime-600"
+            className="ml-5 text-xs underline underline-offset-2 decoration-solid hover:text-lime-600 italic"
           >
             Already logged in go to Sign Up
           </Link>
