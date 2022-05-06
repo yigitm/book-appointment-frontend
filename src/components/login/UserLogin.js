@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { postLogin, login } from '../../redux/users/signIn';
+import { postLogin } from '../../redux/users/signIn';
+import { FaSignature } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const UserLogin = () => {
   const [username, setUsername] = useState('');
@@ -26,7 +28,8 @@ const UserLogin = () => {
   };
 
   return (
-    <form onSubmit={handleLogin}>
+    <form onSubmit={handleLogin} className="flex flex-col items-center">
+      <FaSignature size={70} />
       <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
         <div className="mb-4">
           <label className="block text-grey-darker text-sm font-bold mb-2">
@@ -65,6 +68,12 @@ const UserLogin = () => {
           >
             Login
           </button>
+          <Link
+            to="/"
+            className="ml-5 text-xs underline underline-offset-2 decoration-solid hover:text-lime-600"
+          >
+            Already logged in go to Sign Up
+          </Link>
           <p className="text-rose-500 ml-5">{message || null}</p>
         </div>
       </div>
