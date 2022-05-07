@@ -1,8 +1,13 @@
 import React from 'react';
-import Slider from './Slider';
+import { useSelector } from 'react-redux';
+import cockpit from '../../images/cockpit.png';
+import technic from '../../images/technic.png';
+import cabin from '../../images/cabin.png';
 import { BsCaretLeft, BsCaretRight } from 'react-icons/bs';
 
 const Courses = () => {
+  const state = useSelector((state) => state.featuresReducers);
+
   const slideLeft = () => {
     const slider = document.getElementById('slider');
     slider.scrollLeft -= 500;
@@ -11,6 +16,15 @@ const Courses = () => {
   const slideRight = () => {
     const slider = document.getElementById('slider');
     slider.scrollLeft += 500;
+  };
+
+  const imageDisplay = (item) => {
+    if (item.course_type === 'Cockpit Course')
+      return <img className="w-[200px]" src={cockpit} alt="/" />;
+    if (item.course_type === 'Cabin Course')
+      return <img className="w-[300px]" src={cabin} alt="/" />;
+    if (item.course_type === 'Technic Course')
+      return <img className="w-[300px]" src={technic} alt="/" />;
   };
 
   return (
@@ -30,7 +44,25 @@ const Courses = () => {
               size={30}
             />
           </div>
-          <Slider />
+
+          <div className="overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide">
+            <div
+              id="slider"
+              className="w-2/3 mx-auto overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
+            >
+              {state.map((item) => (
+                <div
+                  key={item.id}
+                  className="inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
+                >
+                  {imageDisplay(item)}
+                  <p className="text-red-500">{item.course_type}</p>
+                  <p className="text-red-500">{item.info}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="border rounded-l-full px-7 py-3 border-gray-300 bg-gray-300 hover:border-lime-500 hover:bg-lime-500">
             <BsCaretRight
               onClick={slideLeft}
@@ -45,3 +77,4 @@ const Courses = () => {
 };
 
 export default Courses;
+//<img key={item.id} src={plane} alt="/" />

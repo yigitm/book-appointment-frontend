@@ -20,7 +20,6 @@ const Add = () => {
     dataName: name,
     dataInfo: info,
     dataSummary: summary,
-    dataDetail: detail,
   };
 
   useEffect(() => {

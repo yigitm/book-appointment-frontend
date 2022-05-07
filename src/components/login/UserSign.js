@@ -66,7 +66,7 @@ const UserSign = () => {
             type="submit"
             onClick={(e) => handleSubmit(e)}
           >
-            Sign In
+            Sign Up
           </button>
           <Link
             to="/login"
