@@ -73,10 +73,10 @@ export const postCreate = (userInputs) => async (dispatch) => {
     },
     body: JSON.stringify({
       course: {
-        course_type: userInputs.type,
-        info: userInputs.info,
-        course_name: userInputs.name,
-        summary: userInputs.summary,
+        course_type: userInputs.dataType,
+        info: userInputs.dataInfo,
+        course_name: userInputs.dataName,
+        summary: userInputs.dataSummary,
       },
     }),
   };

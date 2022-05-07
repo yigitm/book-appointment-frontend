@@ -7,47 +7,44 @@ import { mockInfo } from '../mockData/mockInfo';
 import { mockText } from '../mockData/mockText';
 
 const Add = () => {
-  const [type, setType] = useState('');
-  const [info, setInfo] = useState('');
-  const [name, setName] = useState('');
-  const [summary, setSummary] = useState('');
+  const [type, setType] = useState('Cockpit Course');
+  const [info, setInfo] = useState(mockInfo[0].info);
+  const [name, setName] = useState('Windshear');
+  const [summary, setSummary] = useState(mockText[0].summary);
+  const [detail, setDetail] = useState(mockText[0].summary);
   const [message, setMessage] = useState();
   const dispatch = useDispatch();
   const state = useSelector((state) => state.featuresReducers);
   const navigate = useNavigate();
   const addData = {
-    type,
-    info,
-    name,
-    summary,
+    dataType: type,
+    dataName: name,
+    dataInfo: info,
+    dataSummary: summary,
+    dataDetail: detail,
   };
 
   useEffect(() => {
     if (state.course) {
-      navigate('/courses');
+      setMessage('Course is successfully created!');
     }
     if (state.course_type) setMessage(`Course type ${state.course_type}`);
     if (state.info) setMessage(`Course info ${state.info}`);
-    if (state.summary) setMessage(`Course summary ${state.summary}`);
-    if (state.course_name) setMessage(`Course name ${state.course_name}`);
   }, [state]);
 
-  const errors = (obj) => {
-    if (obj.course_type == true) false;
-  };
-
-  const validate = (input) => {
+  const validate = () => {
     let checks = 0;
-    if (input.type === '') checks += 1;
-    if (input.info === '') checks += 1;
-    if (input.name === '') checks += 1;
-    if (input.summary === '') checks += 1;
+    if (type === '') checks += 1;
+    if (name === '') checks += 1;
+    if (info === '') checks += 1;
+    if (summary === '') checks += 1;
+    if (summary === '') checks += 1;
     return checks;
   };
 
   const handleAdd = (e) => {
     e.preventDefault();
-    if (validate(addData) > 0) {
+    if (validate > 0) {
       setMessage('Please select all options!');
     } else {
       dispatch(postCreate(addData));
@@ -61,8 +58,8 @@ const Add = () => {
       <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex items-center">
         <p className="mr-5 text-xl text-lime-600">Course Category :</p>
 
-        <select required onChange={(e) => setType(e.target.value)}>
-          <option value="Cockpit Course">Pilot Course</option>
+        <select onChange={(e) => setType(e.target.value)}>
+          <option value="Cockpit Course">Cockpit Course</option>
           <option value="Cabin Course">Cabin Course</option>
           <option value="Technic Course">Technic Course</option>
         </select>
@@ -80,7 +77,6 @@ const Add = () => {
         <p className="mr-5 text-xl text-lime-600">Course Info :</p>
 
         <select
-          required
           className="flex flex-col text-black"
           onChange={(e) => setInfo(e.target.value)}
         >
@@ -102,16 +98,17 @@ const Add = () => {
             />
           ))}
         </select>
-        <div className="flex items-center items-start mt-5">
-          <button
-            className="bg-lime-500 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded"
-            type="submit"
-            onClick={(e) => handleAdd(e)}
-          >
-            Add Course
-          </button>
-          <p className="text-rose-500 ml-5">{message || null}</p>
-        </div>
+      </div>
+
+      <div className="flex items-center items-start mt-5">
+        <button
+          className="bg-lime-500 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded"
+          type="submit"
+          onClick={(e) => handleAdd(e)}
+        >
+          Add Course
+        </button>
+        <p className="text-rose-500 ml-5">{message || null}</p>
       </div>
     </form>
   );
