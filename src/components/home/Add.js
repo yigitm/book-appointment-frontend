@@ -11,7 +11,6 @@ const Add = () => {
   const [info, setInfo] = useState(mockInfo[0].info);
   const [name, setName] = useState('Windshear');
   const [summary, setSummary] = useState(mockText[0].summary);
-  const [detail, setDetail] = useState(mockText[0].summary);
   const [message, setMessage] = useState();
   const dispatch = useDispatch();
   const state = useSelector((state) => state.featuresReducers);
