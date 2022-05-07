@@ -1,6 +1,6 @@
 import React from 'react';
+import Slider from './Slider';
 import { BsCaretLeft, BsCaretRight } from 'react-icons/bs';
-import { mockImg } from '../mockData/mockImage';
 
 const Courses = () => {
   const slideLeft = () => {
@@ -30,19 +30,7 @@ const Courses = () => {
               size={30}
             />
           </div>
-          <div
-            id="slider"
-            className="w-2/3 mx-auto overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
-          >
-            {mockImg.map((item) => (
-              <img
-                key={item.id}
-                className="w-[270px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
-                src={item.img}
-                alt="/"
-              />
-            ))}
-          </div>
+          <Slider />
           <div className="border rounded-l-full px-7 py-3 border-gray-300 bg-gray-300 hover:border-lime-500 hover:bg-lime-500">
             <BsCaretRight
               onClick={slideLeft}
