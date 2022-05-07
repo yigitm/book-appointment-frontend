@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { postLogin } from '../../redux/features';
 import { FaSignature } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { postLogin } from '../../redux/features';
 
 const UserLogin = () => {
   const [username, setUsername] = useState('');

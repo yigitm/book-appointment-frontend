@@ -31,7 +31,7 @@ export const list = (state) => ({
 });
 
 export const postLogin = (userInputs) => async (dispatch) => {
-  TOKEN = localStorage.getItem('TOKEN', user.token);
+  TOKEN = localStorage.getItem('TOKEN');
   const requestOptions = {
     method: 'POST',
     headers: {
@@ -115,7 +115,7 @@ const featuresReducers = (state = initialState, action) => {
     case CREATE:
       return Object.assign(action.payload);
     case LIST:
-      return Object.assign(action.payload);
+      return action.payload;
     default:
       return state;
   }

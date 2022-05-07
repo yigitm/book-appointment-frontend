@@ -1,12 +1,21 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getList } from '../../redux/features';
 import cockpit from '../../images/cockpit.png';
 import technic from '../../images/technic.png';
 import cabin from '../../images/cabin.png';
+import plane from '../../images/plane.png';
+
 import { BsCaretLeft, BsCaretRight } from 'react-icons/bs';
 
 const Courses = () => {
   const state = useSelector((state) => state.featuresReducers);
+  const [courses, setCourses] = useState(false);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getList);
+  }, []);
 
   const slideLeft = () => {
     const slider = document.getElementById('slider');
@@ -20,7 +29,7 @@ const Courses = () => {
 
   const imageDisplay = (item) => {
     if (item.course_type === 'Cockpit Course')
-      return <img className="w-[200px]" src={cockpit} alt="/" />;
+      return <img className="w-[180px]" src={cockpit} alt="/" />;
     if (item.course_type === 'Cabin Course')
       return <img className="w-[300px]" src={cabin} alt="/" />;
     if (item.course_type === 'Technic Course')
@@ -34,7 +43,7 @@ const Courses = () => {
           <h1>LATEST COURSES</h1>
         </header>
         <h6 className="font-thin text-center mb-20">
-          Please select a course category
+          Please add a course category
         </h6>
         <div className="flex items-center">
           <div className="border rounded-r-full px-7 py-3 border-gray-300 bg-gray-300 hover:border-lime-500 hover:bg-lime-500">
@@ -50,16 +59,22 @@ const Courses = () => {
               id="slider"
               className="w-2/3 mx-auto overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
             >
-              {state.map((item) => (
-                <div
-                  key={item.id}
-                  className="inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
-                >
-                  {imageDisplay(item)}
-                  <p className="text-red-500">{item.course_type}</p>
-                  <p className="text-red-500">{item.info}</p>
-                </div>
-              ))}
+              {state.length > 0
+                ? state.map((item) => (
+                    <div
+                      key={item.id}
+                      className="inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
+                    >
+                      {imageDisplay(item)}
+                      <p className="text-red-500">{item.course_type}</p>
+                      <p className="text-red-500">{item.info}</p>
+                    </div>
+                  ))
+                : null}
+
+              {state.length === 0 ? (
+                <img className="w-full" src={plane} alt="/" />
+              ) : null}
             </div>
           </div>
 
@@ -77,4 +92,3 @@ const Courses = () => {
 };
 
 export default Courses;
-//<img key={item.id} src={plane} alt="/" />
