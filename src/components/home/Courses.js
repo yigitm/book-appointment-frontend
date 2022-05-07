@@ -29,11 +29,11 @@ const Courses = () => {
 
   const imageDisplay = (item) => {
     if (item.course_type === 'Cockpit Course')
-      return <img className="w-[180px]" src={cockpit} alt="/" />;
+      return <img className="w-[180px] mx-auto p-5" src={cockpit} alt="/" />;
     if (item.course_type === 'Cabin Course')
-      return <img className="w-[300px]" src={cabin} alt="/" />;
+      return <img className="w-[300px] mx-auto" src={cabin} alt="/" />;
     if (item.course_type === 'Technic Course')
-      return <img className="w-[300px]" src={technic} alt="/" />;
+      return <img className="w-[300px] mx-auto" src={technic} alt="/" />;
   };
 
   return (
@@ -45,7 +45,7 @@ const Courses = () => {
         <h6 className="font-thin text-center mb-20">
           Please add a course category
         </h6>
-        <div className="flex items-center">
+        <div className="flex items-center justify-between">
           <div className="border rounded-r-full px-7 py-3 border-gray-300 bg-gray-300 hover:border-lime-500 hover:bg-lime-500">
             <BsCaretLeft
               onClick={slideRight}
@@ -54,16 +54,16 @@ const Courses = () => {
             />
           </div>
 
-          <div className="overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide">
+          <div className="w-2/3 overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide">
             <div
               id="slider"
-              className="w-2/3 mx-auto overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
+              className="min-w-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
             >
               {state.length > 0
                 ? state.map((item) => (
                     <div
                       key={item.id}
-                      className="inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
+                      className="cursor-pointer hover:scale-105 ease-in-out duration-300"
                     >
                       {imageDisplay(item)}
                       <p className="text-red-500">{item.course_type}</p>
