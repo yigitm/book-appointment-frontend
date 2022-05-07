@@ -1,10 +1,10 @@
 import React, { useState, useEffect, componentDidMount } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { postCreate } from '../../redux/features';
 import { FaSignature } from 'react-icons/fa';
 import { mockInfo } from '../mockData/mockInfo';
 import { mockText } from '../mockData/mockText';
+import { Link } from 'react-router-dom';
 
 const Add = () => {
   const [type, setType] = useState('Cockpit Course');
@@ -15,7 +15,7 @@ const Add = () => {
   const [message, setMessage] = useState();
   const dispatch = useDispatch();
   const state = useSelector((state) => state.featuresReducers);
-  const navigate = useNavigate();
+
   const addData = {
     dataType: type,
     dataName: name,
@@ -108,6 +108,9 @@ const Add = () => {
         >
           Add Course
         </button>
+        <Link to="/courses" className="ml-5 text-gray-600">
+          Go Back
+        </Link>
         <p className="text-rose-500 ml-5">{message || null}</p>
       </div>
     </form>
