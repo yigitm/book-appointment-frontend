@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, componentDidMount } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { postCreate } from '../../redux/features';
 import { FaSignature } from 'react-icons/fa';
 import { mockInfo } from '../mockData/mockInfo';
 import { mockText } from '../mockData/mockText';
-import { createFalse } from 'typescript';
 
 const Add = () => {
   const [type, setType] = useState('');
@@ -10,30 +12,45 @@ const Add = () => {
   const [name, setName] = useState('');
   const [summary, setSummary] = useState('');
   const [message, setMessage] = useState();
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.featuresReducers);
+  const navigate = useNavigate();
+  const addData = {
+    type,
+    info,
+    name,
+    summary,
+  };
+
+  useEffect(() => {
+    if (state.course) {
+      navigate('/courses');
+    }
+    if (state.course_type) setMessage(`Course type ${state.course_type}`);
+    if (state.info) setMessage(`Course info ${state.info}`);
+    if (state.summary) setMessage(`Course summary ${state.summary}`);
+    if (state.course_name) setMessage(`Course name ${state.course_name}`);
+  }, [state]);
+
+  const errors = (obj) => {
+    if (obj.course_type == true) false;
+  };
 
   const validate = (input) => {
     let checks = 0;
-    if (input.type == '') checks += 1;
-    if (input.info == '') checks += 1;
-    if (input.name == '') checks += 1;
-    if (input.summary == '') checks += 1;
+    if (input.type === '') checks += 1;
+    if (input.info === '') checks += 1;
+    if (input.name === '') checks += 1;
+    if (input.summary === '') checks += 1;
     return checks;
   };
 
   const handleAdd = (e) => {
     e.preventDefault();
-    const addData = {
-      type,
-      info,
-      name,
-      summary,
-    };
-
     if (validate(addData) > 0) {
       setMessage('Please select all options!');
     } else {
-      console.log(addData);
-      //dispatch(postAdd(addData));
+      dispatch(postCreate(addData));
     }
   };
 
