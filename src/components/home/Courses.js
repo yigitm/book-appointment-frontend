@@ -10,7 +10,6 @@ import { BsCaretLeft, BsCaretRight } from 'react-icons/bs';
 
 const Courses = () => {
   const state = useSelector((state) => state.featuresReducers);
-  const [courses, setCourses] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,11 +28,11 @@ const Courses = () => {
 
   const imageDisplay = (item) => {
     if (item.course_type === 'Cockpit Course')
-      return <img className="w-[180px] mx-auto p-5" src={cockpit} alt="/" />;
+      return <img className="w-[180px]" src={cockpit} alt="/" />;
     if (item.course_type === 'Cabin Course')
-      return <img className="w-[300px] mx-auto" src={cabin} alt="/" />;
+      return <img className="w-[300px]" src={cabin} alt="/" />;
     if (item.course_type === 'Technic Course')
-      return <img className="w-[300px] mx-auto" src={technic} alt="/" />;
+      return <img className="w-[300px]" src={technic} alt="/" />;
   };
 
   return (
@@ -54,10 +53,10 @@ const Courses = () => {
             />
           </div>
 
-          <div className="w-2/3 overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide">
+          <div className="overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide">
             <div
               id="slider"
-              className="min-w-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
+              className="flex items-center overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
             >
               {state.length > 0
                 ? state.map((item) => (

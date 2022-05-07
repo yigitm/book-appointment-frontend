@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FaSignature } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { postCreate } from '../../redux/features';
 import { mockInfo } from '../mockData/mockInfo';
 import { mockText } from '../mockData/mockText';
@@ -14,7 +14,6 @@ const Add = () => {
   const [message, setMessage] = useState();
   const dispatch = useDispatch();
   const state = useSelector((state) => state.featuresReducers);
-  const navigate = useNavigate();
 
   const addData = {
     dataType: type,
@@ -47,7 +46,6 @@ const Add = () => {
       setMessage('Please select all options!');
     } else {
       dispatch(postCreate(addData));
-      navigate('/courses');
     }
   };
 
@@ -109,6 +107,9 @@ const Add = () => {
           Add Course
         </button>
 
+        <Link to="/courses" className="ml-5 text-gray-600">
+          Go Back
+        </Link>
         <p className="text-rose-500 ml-5">{message || null}</p>
       </div>
     </form>
