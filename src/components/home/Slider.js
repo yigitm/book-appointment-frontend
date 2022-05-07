@@ -1,23 +1,20 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getList } from '../../redux/features';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { mockImg } from '../mockData/mockImage';
 
 const Slider = () => {
   const state = useSelector((state) => state.featuresReducers);
-  const dispatch = useDispatch();
-  const courses = null;
 
-  useEffect(() => {
-    dispatch(getList);
-  }, []);
-
-  return (
+  return state.map((item) => (
     <div
+      key={item.id}
       id="slider"
       className="w-2/3 mx-auto overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
-    ></div>
-  );
+    >
+      <p className="text-red-500">{item.course_type}</p>
+      <p className="text-red-500">{item.info}</p>
+    </div>
+  ));
 };
 
 export default Slider;
