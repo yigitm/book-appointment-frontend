@@ -5,8 +5,7 @@ import cockpit from '../../images/cockpit.png';
 import technic from '../../images/technic.png';
 import cabin from '../../images/cabin.png';
 import plane from '../../images/plane.png';
-
-import { BsCaretLeft, BsCaretRight } from 'react-icons/bs';
+import { BsCaretLeft, BsCaretRight, IoLogoInstagram } from 'react-icons/bs';
 
 const Courses = () => {
   const state = useSelector((state) => state.featuresReducers);
@@ -26,13 +25,36 @@ const Courses = () => {
     slider.scrollLeft += 500;
   };
 
+  const bgCockpit = (item) => {
+    if (item.course_type === 'Cockpit Course')
+      return <p className="w-[200px] ml-16 p-28  rounded-full" />;
+  };
+
   const imageDisplay = (item) => {
     if (item.course_type === 'Cockpit Course')
-      return <img className="w-[180px]" src={cockpit} alt="/" />;
+      return (
+        <img
+          className="w-[200px] mx-auto bg-slate-200 rounded-full"
+          src={cockpit}
+          alt="/"
+        />
+      );
     if (item.course_type === 'Cabin Course')
-      return <img className="w-[300px]" src={cabin} alt="/" />;
+      return (
+        <img
+          className="w-[200px] mx-auto bg-cyan-100 rounded-full"
+          src={cabin}
+          alt="/"
+        />
+      );
     if (item.course_type === 'Technic Course')
-      return <img className="w-[300px]" src={technic} alt="/" />;
+      return (
+        <img
+          className="w-[200px] mx-auto px-4 bg-zinc-400 rounded-full"
+          src={technic}
+          alt="/"
+        />
+      );
   };
 
   return (
@@ -62,11 +84,21 @@ const Courses = () => {
                 ? state.map((item) => (
                     <div
                       key={item.id}
-                      className="cursor-pointer hover:scale-105 ease-in-out duration-300"
+                      className="mx-20 cursor-pointer hover:scale-105 ease-in-out duration-300"
                     >
                       {imageDisplay(item)}
-                      <p className="text-red-500">{item.course_type}</p>
-                      <p className="text-red-500">{item.info}</p>
+
+                      <p className="mt-5 flex flex-col items-center">
+                        <span className="text-xl font-extrabold">
+                          {item.course_type} :
+                        </span>
+                        <span className="text-sm text-gray-300">
+                          *******************************
+                        </span>
+                        <span className="text-sm text-gray-600">
+                          {item.info}
+                        </span>
+                      </p>
                     </div>
                   ))
                 : null}
