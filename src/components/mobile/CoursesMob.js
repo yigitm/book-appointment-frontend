@@ -67,14 +67,6 @@ const Courses = () => {
           Please select a course category
         </h6>
         <div className="flex items-center justify-between">
-          <div className="border rounded-r-full px-7 py-3 border-gray-300 bg-gray-300 hover:border-lime-500 hover:bg-lime-500">
-            <BsCaretLeft
-              onClick={slideRight}
-              style={{ color: 'white', marginRight: '-1rem' }}
-              size={30}
-            />
-          </div>
-
           <div className="overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide">
             <div
               id="slider"
@@ -129,14 +121,6 @@ const Courses = () => {
                 </div>
               ) : null}
             </div>
-          </div>
-
-          <div className="border rounded-l-full px-7 py-3 border-gray-300 bg-gray-300 hover:border-lime-500 hover:bg-lime-500">
-            <BsCaretRight
-              onClick={slideLeft}
-              style={{ color: 'white', marginLeft: '-1rem' }}
-              size={30}
-            />
           </div>
         </div>
       </div>
