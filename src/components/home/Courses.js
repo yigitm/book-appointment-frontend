@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getList } from '../../redux/features';
 import cockpit from '../../images/cockpit.png';
 import technic from '../../images/technic.png';
 import cabin from '../../images/cabin.png';
 import plane from '../../images/plane.png';
-import { BsCaretLeft, BsCaretRight, IoLogoInstagram } from 'react-icons/bs';
+import { BsCaretLeft, BsCaretRight } from 'react-icons/bs';
+import {
+  TiSocialFacebook,
+  TiSocialTwitter,
+  TiSocialInstagram,
+} from 'react-icons/ti';
 
 const Courses = () => {
   const state = useSelector((state) => state.featuresReducers);
@@ -99,6 +104,20 @@ const Courses = () => {
                           {item.info}
                         </span>
                       </p>
+                      <div className="mt-5 flex text-gray-300 justify-center">
+                        <TiSocialFacebook
+                          size={40}
+                          className="mr-5 py-2 rounded-full border border-gray-300"
+                        />
+                        <TiSocialTwitter
+                          size={40}
+                          className="mr-5 py-2 rounded-full border border-gray-300"
+                        />
+                        <TiSocialInstagram
+                          size={40}
+                          className="mr-5 py-2 rounded-full border border-gray-300"
+                        />
+                      </div>
                     </div>
                   ))
                 : null}
