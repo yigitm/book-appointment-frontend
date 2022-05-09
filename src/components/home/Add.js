@@ -24,6 +24,9 @@ const Add = () => {
   };
 
   useEffect(() => {
+    if (state.status === 500) {
+      setMessage('Please login to continue...');
+    }
     if (state.course) {
       setMessage('Course is successfully created!');
     }
@@ -50,7 +53,7 @@ const Add = () => {
     }
   };
 
-  return sessionStorage.getItem('TOKEN') ? (
+  return (
     <form className="flex flex-col items-start ml-9">
       <FaSignature size={70} />
 
@@ -114,8 +117,6 @@ const Add = () => {
         <p className="text-rose-500 ml-5">{message || null}</p>
       </div>
     </form>
-  ) : (
-    <Splash />
   );
 };
 

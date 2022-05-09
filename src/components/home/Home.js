@@ -5,7 +5,6 @@ import Hidden from '@material-ui/core/Hidden';
 import Mobile from '../mobile/Mobile';
 import Nav from './Nav';
 import Courses from './Courses';
-import Splash from '../Splash';
 
 import { createTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
@@ -29,19 +28,15 @@ const Home = () => {
 
   return (
     <main className="flex flex-col md:flex-row mb-4">
-      {sessionStorage.getItem('TOKEN') ? (
-        <MuiThemeProvider theme={theme}>
-          <Hidden mdUp>
-            <Mobile />
-          </Hidden>
-          <Hidden mdDown>
-            <Nav />
-            <Courses />
-          </Hidden>
-        </MuiThemeProvider>
-      ) : (
-        <Splash />
-      )}
+      <MuiThemeProvider theme={theme}>
+        <Hidden mdUp>
+          <Mobile />
+        </Hidden>
+        <Hidden mdDown>
+          <Nav />
+          <Courses />
+        </Hidden>
+      </MuiThemeProvider>
     </main>
   );
 };

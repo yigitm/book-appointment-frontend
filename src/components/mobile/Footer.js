@@ -8,7 +8,7 @@ import {
 } from 'react-icons/fa';
 
 const Footer = () => (
-  <div className="flex justify-center items-center">
+  <div className="mt-5 flex justify-center items-center">
     <FaTwitter className="mr-1" />
     <FaFacebookF className="mr-1" />
     <FaGooglePlusG className="mr-1" />

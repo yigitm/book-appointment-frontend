@@ -18,10 +18,10 @@ const NavMob = () => (
 
       <ul className="text-1xl">
         <li className="font-extrabold p-4 hover:bg-lime-500 hover:text-white">
-          <Link to="/courses">SIGN UP</Link>
+          <Link to="/sign">SIGN UP</Link>
         </li>
         <li className="font-extrabold p-4 hover:bg-lime-500 hover:text-white">
-          <Link to="/courses">LOGIN</Link>
+          <Link to="/login">LOGIN</Link>
         </li>
         <li className="font-extrabold p-4 hover:bg-lime-500 hover:text-white">
           <Link to="/courses">COURSES</Link>

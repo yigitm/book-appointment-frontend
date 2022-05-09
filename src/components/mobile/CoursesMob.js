@@ -11,7 +11,7 @@ import {
   TiSocialInstagram,
 } from 'react-icons/ti';
 
-const Courses = () => {
+const CoursesMob = () => {
   const state = useSelector((state) => state.featuresReducers);
   const dispatch = useDispatch();
 
@@ -52,7 +52,13 @@ const Courses = () => {
         <h1>LATEST COURSES</h1>
       </header>
       <h6 className="font-thin text-center mb-20">
-        Please select a course category
+        {sessionStorage.getItem('TOKEN') ? (
+          'Please select a course category'
+        ) : (
+          <span className="text-rose-500 font-bold">
+            Please login to continue...
+          </span>
+        )}
       </h6>
 
       <div className="flex flex-col items-center px-3">
@@ -100,9 +106,14 @@ const Courses = () => {
             <p className="font-thin text-center mb-20">No course added, yet.</p>
           </div>
         ) : null}
+        {sessionStorage.getItem('TOKEN') ? null : (
+          <div>
+            <img className="w-full" src={plane} alt="/" />
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default Courses;
+export default CoursesMob;
