@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import Splash from '../Splash';
 import { FaSignature } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { postCreate } from '../../redux/features';
@@ -49,7 +50,7 @@ const Add = () => {
     }
   };
 
-  return (
+  return sessionStorage.getItem('TOKEN') ? (
     <form className="flex flex-col items-start ml-9">
       <FaSignature size={70} />
 
@@ -113,6 +114,8 @@ const Add = () => {
         <p className="text-rose-500 ml-5">{message || null}</p>
       </div>
     </form>
+  ) : (
+    <Splash />
   );
 };
 

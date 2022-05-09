@@ -13,7 +13,8 @@ const UserSign = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (state.error) setMessage(state.error);
+    if (state.error && !!sessionStorage.getItem('TOKEN'))
+      setMessage(state.error);
     if (state.user) navigate('/courses');
   }, [state]);
 
