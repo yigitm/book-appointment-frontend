@@ -10,6 +10,10 @@ const courseURL = 'http://localhost:3000/api/v1/courses';
 const initialState = [];
 let TOKEN = '';
 
+export const loginStatus = (status) => {
+  status ? true : false;
+};
+
 export const signUp = (state) => ({
   type: SIGN_UP,
   payload: state,
@@ -66,6 +70,7 @@ export const postSignUp = (userInputs) => async (dispatch) => {
   const response = await fetch(baseURL, requestOptions);
   const user = await response.json();
   sessionStorage.setItem('TOKEN', user.token);
+  sessionStorage.setItem('LOGIN?', true);
   dispatch(signUp(user));
 };
 
@@ -111,6 +116,9 @@ const featuresReducers = (state = initialState, action) => {
     case SIGN_UP:
       return Object.assign(action.payload);
     case LOGIN:
+      !!action.payload.token
+        ? sessionStorage.setItem('LOGIN?', true)
+        : sessionStorage.setItem('LOGIN?', false);
       return Object.assign(action.payload);
     case CREATE:
       return Object.assign(action.payload);
