@@ -52,12 +52,12 @@ const CoursesMob = () => {
         <h1>LATEST COURSES</h1>
       </header>
       <h6 className="font-thin text-center mb-20">
-        {sessionStorage.getItem('TOKEN') ? (
-          'Please select a course category'
-        ) : (
+        {state.status == 500 ? (
           <span className="text-rose-500 font-bold">
             Please login to continue...
           </span>
+        ) : (
+          'Please select a course category'
         )}
       </h6>
 
@@ -100,17 +100,12 @@ const CoursesMob = () => {
             ))
           : null}
 
-        {state.length === 0 ? (
+        {state.length === 0 || state.status === 500 ? (
           <div>
             <img className="w-full" src={plane} alt="/" />
             <p className="font-thin text-center mb-20">No course added, yet.</p>
           </div>
         ) : null}
-        {sessionStorage.getItem('TOKEN') ? null : (
-          <div>
-            <img className="w-full" src={plane} alt="/" />
-          </div>
-        )}
       </div>
     </div>
   );
