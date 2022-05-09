@@ -5,7 +5,6 @@ import cockpit from '../../images/cockpit.png';
 import technic from '../../images/technic.png';
 import cabin from '../../images/cabin.png';
 import plane from '../../images/plane.png';
-import { BsCaretLeft, BsCaretRight } from 'react-icons/bs';
 import {
   TiSocialFacebook,
   TiSocialTwitter,
@@ -19,16 +18,6 @@ const Courses = () => {
   useEffect(() => {
     dispatch(getList);
   }, []);
-
-  const slideLeft = () => {
-    const slider = document.getElementById('slider');
-    slider.scrollLeft -= 500;
-  };
-
-  const slideRight = () => {
-    const slider = document.getElementById('slider');
-    slider.scrollLeft += 500;
-  };
 
   const imageDisplay = (item) => {
     if (item.course_type === 'Cockpit Course')
@@ -58,71 +47,59 @@ const Courses = () => {
   };
 
   return (
-    <div className="h-screen md:w-3/4 z-0">
-      <div className="my-44">
-        <header className="text-5xl font-extrabold text-center">
-          <h1>LATEST COURSES</h1>
-        </header>
-        <h6 className="font-thin text-center mb-20">
-          Please select a course category
-        </h6>
-        <div className="flex items-center justify-between">
-          <div className="overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide">
-            <div
-              id="slider"
-              className="flex items-center overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
-            >
-              {state.length > 0
-                ? state.map((item) => (
-                    <div
-                      key={item.id}
-                      className="mx-20 cursor-pointer hover:scale-105 ease-in-out duration-300"
-                    >
-                      {imageDisplay(item)}
+    <div className="mt-5">
+      <header className="text-3xl font-extrabold text-center">
+        <h1>LATEST COURSES</h1>
+      </header>
+      <h6 className="font-thin text-center mb-20">
+        Please select a course category
+      </h6>
 
-                      <p className="mt-5 block text-center">
-                        <span className="text-xl font-extrabold">
-                          {item.course_type} :
-                        </span>
-                        <br />
-                        <br />
-                        <span className="text-sm text-gray-300">
-                          *******************************
-                        </span>
-                        <br />
-                        <span className="text-sm text-gray-600">
-                          {item.info}
-                        </span>
-                      </p>
-                      <div className="mt-5 flex text-gray-300 justify-center">
-                        <TiSocialFacebook
-                          size={40}
-                          className="mr-5 py-2 rounded-full border border-gray-300"
-                        />
-                        <TiSocialTwitter
-                          size={40}
-                          className="mr-5 py-2 rounded-full border border-gray-300"
-                        />
-                        <TiSocialInstagram
-                          size={40}
-                          className="mr-5 py-2 rounded-full border border-gray-300"
-                        />
-                      </div>
-                    </div>
-                  ))
-                : null}
+      <div className="flex flex-col items-center px-3">
+        {state.length > 0
+          ? state.map((item) => (
+              <div
+                key={item.id}
+                className="mb-3 cursor-pointer hover:scale-105 ease-in-out duration-300"
+              >
+                {imageDisplay(item)}
 
-              {state.length === 0 ? (
-                <div>
-                  <img className="w-full" src={plane} alt="/" />
-                  <p className="font-thin text-center mb-20">
-                    No course added, yet.
-                  </p>
+                <p className="mt-5 block text-center">
+                  <span className="text-xl font-extrabold">
+                    {item.course_type} :
+                  </span>
+                  <br />
+                  <br />
+                  <span className="text-sm text-gray-300">
+                    *******************************
+                  </span>
+                  <br />
+                  <span className="text-sm text-gray-600">{item.info}</span>
+                </p>
+                <div className="mt-5 flex text-gray-400 justify-center">
+                  <TiSocialFacebook
+                    size={40}
+                    className="mr-5 py-2 rounded-full border border-gray-300"
+                  />
+                  <TiSocialTwitter
+                    size={40}
+                    className="mr-5 py-2 rounded-full border border-gray-300"
+                  />
+                  <TiSocialInstagram
+                    size={40}
+                    className="mr-5 py-2 rounded-full border border-gray-300"
+                  />
                 </div>
-              ) : null}
-            </div>
+              </div>
+            ))
+          : null}
+
+        {state.length === 0 ? (
+          <div>
+            <img className="w-full" src={plane} alt="/" />
+            <p className="font-thin text-center mb-20">No course added, yet.</p>
           </div>
-        </div>
+        ) : null}
       </div>
     </div>
   );

@@ -102,7 +102,7 @@ const Courses = () => {
                           {item.info}
                         </span>
                       </p>
-                      <div className="mt-5 flex text-gray-300 justify-center">
+                      <div className="mt-5 flex text-gray-400 justify-center">
                         <TiSocialFacebook
                           size={40}
                           className="mr-5 py-2 rounded-full border border-gray-300"

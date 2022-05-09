@@ -31,7 +31,7 @@ export const list = (state) => ({
 });
 
 export const postLogin = (userInputs) => async (dispatch) => {
-  TOKEN = localStorage.getItem('TOKEN');
+  TOKEN = sessionStorage.getItem('TOKEN');
   const requestOptions = {
     method: 'POST',
     headers: {
@@ -65,12 +65,12 @@ export const postSignUp = (userInputs) => async (dispatch) => {
   };
   const response = await fetch(baseURL, requestOptions);
   const user = await response.json();
-  localStorage.setItem('TOKEN', user.token);
+  sessionStorage.setItem('TOKEN', user.token);
   dispatch(signUp(user));
 };
 
 export const postCreate = (userInputs) => async (dispatch) => {
-  TOKEN = localStorage.getItem('TOKEN');
+  TOKEN = sessionStorage.getItem('TOKEN');
   const requestOptions = {
     method: 'POST',
     headers: {
@@ -93,7 +93,7 @@ export const postCreate = (userInputs) => async (dispatch) => {
 };
 
 export const getList = async (dispatch) => {
-  TOKEN = localStorage.getItem('TOKEN');
+  TOKEN = sessionStorage.getItem('TOKEN');
   const requestOptions = {
     method: 'GET',
     headers: {
