@@ -74,6 +74,9 @@ const UserLogin = () => {
           >
             Already logged in go to Sign Up
           </Link>
+          <Link to="/courses" className="ml-5 text-gray-600">
+            Go Back
+          </Link>
           <p className="text-rose-500 ml-5">{message || null}</p>
         </div>
       </div>

@@ -74,6 +74,9 @@ const UserSign = () => {
           >
             Already signed up go to Login
           </Link>
+          <Link to="/courses" className="ml-5 text-gray-600">
+            Go Back
+          </Link>
           <p className="text-rose-500 ml-5">{message || null}</p>
         </div>
       </div>

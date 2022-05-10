@@ -61,7 +61,7 @@ const Courses = () => {
     <div className="h-screen md:w-3/4 z-0">
       <div className="my-44">
         <header className="text-5xl font-extrabold text-center">
-          <h1 className="font-boldbold text-center mb-20">LATEST COURSES</h1>
+          <h1 className="font-boldbold text-center">LATEST COURSES</h1>
         </header>
         <h6 className="font-thin text-center mb-20">
           {sessionStorage.getItem('TOKEN') ? (
