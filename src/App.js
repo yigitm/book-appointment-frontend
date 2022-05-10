@@ -6,6 +6,7 @@ import UserSign from './components/login/UserSign';
 import UserLogin from './components/login/UserLogin';
 import Home from './components/home/Home';
 import Add from './components/home/Add';
+import DeleteCourse from './components/home/DeleteCourse';
 import './App.css';
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
       <Route path="/login" element={<UserLogin />} />
       <Route path="/courses" element={<Home />} />
       <Route path="/add" element={<Add />} />
+      <Route path="/delete" element={<DeleteCourse />} />
     </Routes>
   );
 };

@@ -2,10 +2,12 @@ const SIGN_UP = 'book-appointment/features/SIGN_UP';
 const LOGIN = 'book-appointment/features/LOGIN';
 const CREATE = 'book-appointment/features/CREATE';
 const LIST = 'book-appointment/features/LIST';
+const DEL = 'book-appointment/features/DELETE';
 
 const baseURL = 'http://localhost:3000/api/v1/users';
 const loginURL = 'http://localhost:3000/api/v1/login';
 const courseURL = 'http://localhost:3000/api/v1/courses';
+const delURL = `${courseURL}/delete`;
 
 const initialState = [];
 let TOKEN = '';
@@ -31,6 +33,11 @@ export const create = (state) => ({
 
 export const list = (state) => ({
   type: LIST,
+  payload: state,
+});
+
+export const del = (state) => ({
+  type: DEL,
   payload: state,
 });
 
@@ -111,6 +118,29 @@ export const getList = async (dispatch) => {
   dispatch(list(courses));
 };
 
+export const delCourse = (data) => async (dispatch) => {
+  TOKEN = sessionStorage.getItem('TOKEN');
+  const requestOptions = {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `bearer ${TOKEN}`,
+    },
+    body: JSON.stringify({
+      course: {
+        course_type: data,
+        info: '',
+        course_name: '',
+        summary: '',
+      },
+    }),
+  };
+  console.log(requestOptions.body);
+  const response = await fetch(delURL, requestOptions);
+  const result = await response.json();
+  dispatch(del(result));
+};
+
 const featuresReducers = (state = initialState, action) => {
   switch (action.type) {
     case SIGN_UP:
@@ -123,6 +153,8 @@ const featuresReducers = (state = initialState, action) => {
     case CREATE:
       return Object.assign(action.payload);
     case LIST:
+      return action.payload;
+    case DEL:
       return action.payload;
     default:
       return state;
