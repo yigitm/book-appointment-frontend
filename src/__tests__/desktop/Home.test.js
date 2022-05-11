@@ -3,8 +3,8 @@ import Home from '../../components/home/Home';
 
 describe('Home render', () => {
   test('Home', () => {
-    const Home = () => <Home />;
+    const home = () => <Home />;
 
-    expect(Home()).toMatchSnapshot();
+    expect(home).toMatchSnapshot();
   });
 });

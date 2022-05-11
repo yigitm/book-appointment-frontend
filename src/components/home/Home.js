@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getList } from '../../redux/features';
 import Hidden from '@material-ui/core/Hidden';
+import { createTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import { getList } from '../../redux/features';
 import Mobile from '../mobile/Mobile';
 import Nav from './Nav';
 import Courses from './Courses';
-
-import { createTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
 const Home = () => {
   const dispatch = useDispatch();

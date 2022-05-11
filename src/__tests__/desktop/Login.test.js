@@ -3,8 +3,8 @@ import UserLogin from '../../components/login/UserLogin';
 
 describe('Test Login render', () => {
   test('Test Login', () => {
-    const Login = () => <UserLogin />;
+    const login = () => <UserLogin />;
 
-    expect(Login()).toMatchSnapshot();
+    expect(login).toMatchSnapshot();
   });
 });

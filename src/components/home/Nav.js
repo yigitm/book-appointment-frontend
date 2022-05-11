@@ -11,12 +11,13 @@ import { Link } from 'react-router-dom';
 
 const Nav = () => {
   const loggedIn = sessionStorage.getItem('LOGIN?');
-
+  /* eslint-disable no-unused-expressions */
   const handleLogout = () => {
-    !!loggedIn
+    loggedIn
       ? sessionStorage.setItem('LOGIN?', false)
       : sessionStorage.setItem('LOGIN?', true);
   };
+  /* eslint-enable no-unused-expressions */
 
   return (
     <nav className="h-screen md:w-1/4 flex flex-col justify-between">
@@ -44,13 +45,14 @@ const Nav = () => {
           <li className="font-extrabold p-4 hover:bg-lime-500 hover:text-white">
             <Link to="/delete">DELETE COURSE</Link>
           </li>
-          <li
-            onClick={handleLogout}
-            className="font-extrabold p-4 hover:bg-lime-500 hover:text-white"
-          >
-            <Link to="/login">LOGOUT</Link>
-          </li>
         </ul>
+        <button
+          type="button"
+          onClick={handleLogout}
+          className="ml-5 font-extrabold p-4 hover:bg-lime-500 hover:text-white text-left"
+        >
+          <Link to="/login">LOGOUT</Link>
+        </button>
       </div>
 
       <div className="flex flex-col items-center">

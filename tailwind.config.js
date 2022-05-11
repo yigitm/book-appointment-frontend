@@ -3,5 +3,7 @@ module.exports = {
   theme: {
     extend: {},
   },
+  /* eslint-disable global-require */
   plugins: [require('tailwind-scrollbar-hide')],
+  /* eslint-enable global-require */
 };

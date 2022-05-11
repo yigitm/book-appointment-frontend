@@ -3,8 +3,8 @@ import UserSign from '../../components/login/UserSign';
 
 describe('Test Sign Up render', () => {
   test('Test Sign Up', () => {
-    const SignUp = () => <UserSign />;
+    const signUp = () => <UserSign />;
 
-    expect(SignUp()).toMatchSnapshot();
+    expect(signUp).toMatchSnapshot();
   });
 });

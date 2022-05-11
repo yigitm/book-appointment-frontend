@@ -12,8 +12,7 @@ const DeleteCourse = () => {
 
   useEffect(() => {
     if (state.status === 500) setMessage('Please check your selection...');
-    if (sessionStorage['LOGIN?'] === undefined)
-      setMessage('Please login to continue...');
+    if (sessionStorage['LOGIN?'] === undefined) setMessage('Please login to continue...');
     if (state.message) {
       setMessage(state.message);
     }
@@ -38,16 +37,16 @@ const DeleteCourse = () => {
           <option>Please select course</option>
           {state.length > 0
             ? state.map((item) => (
-                <option
-                  key={item.id}
-                  id={item.id}
-                  className="flex justify-center"
-                  value={item.course_type}
-                  label={item.course_type}
-                >
-                  {item.course_type}
-                </option>
-              ))
+              <option
+                key={item.id}
+                id={item.id}
+                className="flex justify-center"
+                value={item.course_type}
+                label={item.course_type}
+              >
+                {item.course_type}
+              </option>
+            ))
             : null}
         </select>
       </div>

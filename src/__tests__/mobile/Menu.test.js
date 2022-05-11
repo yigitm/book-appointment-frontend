@@ -3,8 +3,8 @@ import CoursesMob from '../../components/mobile/CoursesMob';
 
 describe('Courses Mobile render', () => {
   test('Courses Mobile', () => {
-    const CoursesMob = () => <CoursesMob />;
+    const coursesMob = () => <CoursesMob />;
 
-    expect(CoursesMob()).toMatchSnapshot();
+    expect(coursesMob).toMatchSnapshot();
   });
 });

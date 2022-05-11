@@ -11,11 +11,11 @@ const delURL = `${courseURL}/delete`;
 
 const initialState = [];
 let TOKEN = '';
-
+/* eslint-disable no-unused-expressions */
 export const loginStatus = (status) => {
-  status ? true : false;
+  !!status;
 };
-
+/* eslint-enable no-unused-expressions */
 export const signUp = (state) => ({
   type: SIGN_UP,
   payload: state,
@@ -135,7 +135,6 @@ export const delCourse = (data) => async (dispatch) => {
       },
     }),
   };
-  console.log(requestOptions.body);
   const response = await fetch(delURL, requestOptions);
   const result = await response.json();
   dispatch(del(result));
@@ -146,9 +145,11 @@ const featuresReducers = (state = initialState, action) => {
     case SIGN_UP:
       return Object.assign(action.payload);
     case LOGIN:
-      !!action.payload.token
+      /* eslint-disable no-unused-expressions */
+      action.payload.token
         ? sessionStorage.setItem('LOGIN?', true)
         : sessionStorage.setItem('LOGIN?', false);
+      /* eslint-enable no-unused-expressions */
       return Object.assign(action.payload);
     case CREATE:
       return Object.assign(action.payload);
