@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Courses Mobile render Courses Mobile 1`] = `<CoursesMob />`;
+
+exports[`CoursesMob render CoursesMob 1`] = `<Menu />`;
+
+exports[`Menu render Menu 1`] = `<Menu />`;
