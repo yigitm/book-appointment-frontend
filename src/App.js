@@ -7,7 +7,6 @@ import UserLogin from './components/login/UserLogin';
 import Home from './components/home/Home';
 import Add from './components/home/Add';
 import DeleteCourse from './components/home/DeleteCourse';
-import './App.css';
 
 const App = () => {
   const dispatch = useDispatch();
