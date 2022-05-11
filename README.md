@@ -4,7 +4,9 @@
 
 This React front end project is a simple course app with basic functionalities and consists of consuming a Ruby on Rails back-end with JWT Bearer authentication.
 
-For the learning purpose and to undestand better what going on under the hood; no packages is used e.g; O-AUTH, JWT for client side. Session storage is used to save token & login status.
+![App Screenshot](src/images/app.gif)
+
+For the learning purpose and to undestand better what is going on under the hood; no packages is used e.g; O-AUTH, JWT for client side. Session storage is used to save token & login status.
 
 Main functionalities are:
 
@@ -83,7 +85,7 @@ It will try to run the app in port 3000 and if you followed the settings to run 
 
 Check your terminal window and simply press enter to run the server in development mode and run the app in [http://localhost:3001](http://localhost:3001).To view it open your default browser.
 
-### Run tests
+### Run Tests
 
 To run the tests, use below command.
 
