@@ -14,6 +14,9 @@ const DeleteCourse = () => {
     if (state.status === 500) setMessage('Please check your selection...');
     if (sessionStorage['LOGIN?'] === undefined)
       setMessage('Please login to continue...');
+    if (state.message) {
+      setMessage(state.message);
+    }
   }, [state]);
 
   useEffect(() => {

@@ -113,7 +113,15 @@ const Add = () => {
         <Link to="/courses" className="ml-5 text-gray-600">
           Go Back
         </Link>
-        <p className="text-rose-500 ml-5">{message || null}</p>
+        <p
+          className={
+            message === 'Course is successfully created!'
+              ? 'text-lime-600 ml-5'
+              : 'text-rose-500 ml-5'
+          }
+        >
+          {message || null}
+        </p>
       </div>
     </form>
   );
