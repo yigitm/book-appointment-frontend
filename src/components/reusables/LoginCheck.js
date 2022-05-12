@@ -2,7 +2,7 @@ import React from 'react';
 
 const LoginCheck = () => (
   <h6 className="font-thin text-center mb-20">
-    {sessionStorage.getItem('LOGIN?') ? (
+    {sessionStorage.getItem('LOGIN?') === 'true' ? (
       'Please select a course category'
     ) : (
       <span className="text-rose-500 font-bold">

@@ -1,12 +1,12 @@
 import React from 'react';
-import HeaderMob from './HeaderMob';
+import Header from '../reusables/Header';
 import LoginCheck from '../reusables/LoginCheck';
 import CourseMob from './CourseMob';
 
 const CoursesMob = () => {
   return (
     <div className="mt-5">
-      <HeaderMob />
+      <Header style="text-3xl" />
       <LoginCheck />
       <CourseMob />
     </div>
