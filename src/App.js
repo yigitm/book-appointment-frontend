@@ -11,12 +11,6 @@ import DeleteCourse from './components/home/DeleteCourse';
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    sessionStorage.setItem(
-      'TOKEN',
-      'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.ETUYUOkmfnWsWIvA8iBOkE2s1ZQ0V_zgnG_c4QRrhbg',
-      'LOGIN?',
-      false,
-    );
     dispatch(getList);
   }, []);
 

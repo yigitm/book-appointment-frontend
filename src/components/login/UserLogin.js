@@ -13,7 +13,8 @@ const UserLogin = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (state.error && !!sessionStorage.getItem('TOKEN')) setMessage(state.error);
+    if (state.error && !!sessionStorage.getItem('TOKEN'))
+      setMessage(state.error);
     if (state.user) navigate('/courses');
   }, [state]);
 
@@ -77,7 +78,7 @@ const UserLogin = () => {
             to="/"
             className="ml-5 text-xs underline underline-offset-2 decoration-solid hover:text-lime-600 italic"
           >
-            Already logged in go to Sign Up
+            Already logged in go for Sign Up
           </Link>
           <Link to="/courses" className="ml-5 text-gray-600">
             Go Back

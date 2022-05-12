@@ -17,7 +17,9 @@ const Courses = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getList);
+    if (sessionStorage['LOGIN?'] !== undefined) {
+      dispatch(getList);
+    }
   }, []);
 
   const slideLeft = () => {
@@ -68,7 +70,7 @@ const Courses = () => {
           <h1 className="font-boldbold text-center">LATEST COURSES</h1>
         </header>
         <h6 className="font-thin text-center mb-20">
-          {sessionStorage.getItem('TOKEN') ? (
+          {sessionStorage.getItem('LOGIN?') ? (
             'Please select a course category'
           ) : (
             <span className="text-rose-500 font-bold">
@@ -93,44 +95,42 @@ const Courses = () => {
             >
               {state.length > 0
                 ? state.map((item) => (
-                  <div
-                    key={item.id}
-                    className="mx-20 cursor-pointer hover:scale-105 ease-in-out duration-300"
-                  >
-                    {imageDisplay(item)}
+                    <div
+                      key={item.id}
+                      className="mx-20 cursor-pointer hover:scale-105 ease-in-out duration-300"
+                    >
+                      {imageDisplay(item)}
 
-                    <p className="mt-5 block text-center">
-                      <span className="text-xl font-extrabold">
-                        {item.course_type}
-                        {' '}
-                        :
-                      </span>
-                      <br />
-                      <br />
-                      <span className="text-sm text-gray-300">
-                        *******************************
-                      </span>
-                      <br />
-                      <span className="text-sm text-gray-600">
-                        {item.info}
-                      </span>
-                    </p>
-                    <div className="mt-5 flex text-gray-400 justify-center">
-                      <TiSocialFacebook
-                        size={40}
-                        className="mr-5 py-2 rounded-full border border-gray-300"
-                      />
-                      <TiSocialTwitter
-                        size={40}
-                        className="mr-5 py-2 rounded-full border border-gray-300"
-                      />
-                      <TiSocialInstagram
-                        size={40}
-                        className="mr-5 py-2 rounded-full border border-gray-300"
-                      />
+                      <p className="mt-5 block text-center">
+                        <span className="text-xl font-extrabold">
+                          {item.course_type} :
+                        </span>
+                        <br />
+                        <br />
+                        <span className="text-sm text-gray-300">
+                          *******************************
+                        </span>
+                        <br />
+                        <span className="text-sm text-gray-600">
+                          {item.info}
+                        </span>
+                      </p>
+                      <div className="mt-5 flex text-gray-400 justify-center">
+                        <TiSocialFacebook
+                          size={40}
+                          className="mr-5 py-2 rounded-full border border-gray-300"
+                        />
+                        <TiSocialTwitter
+                          size={40}
+                          className="mr-5 py-2 rounded-full border border-gray-300"
+                        />
+                        <TiSocialInstagram
+                          size={40}
+                          className="mr-5 py-2 rounded-full border border-gray-300"
+                        />
+                      </div>
                     </div>
-                  </div>
-                ))
+                  ))
                 : null}
 
               {state.length === 0 ? (

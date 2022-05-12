@@ -23,7 +23,7 @@ const Add = () => {
   };
 
   useEffect(() => {
-    if (state.status === 500) {
+    if (sessionStorage['LOGIN?'] === undefined) {
       setMessage('Please login to continue...');
     }
     if (state.course) {
