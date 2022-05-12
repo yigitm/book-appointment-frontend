@@ -33,23 +33,9 @@ const Add = () => {
     if (state.info) setMessage(`Course info ${state.info}`);
   }, [state]);
 
-  const validate = () => {
-    let checks = 0;
-    if (type === '') checks += 1;
-    if (name === '') checks += 1;
-    if (info === '') checks += 1;
-    if (summary === '') checks += 1;
-    if (summary === '') checks += 1;
-    return checks;
-  };
-
   const handleAdd = (e) => {
     e.preventDefault();
-    if (validate > 0) {
-      setMessage('Please select all options!');
-    } else {
-      dispatch(postCreate(addData));
-    }
+    dispatch(postCreate(addData));
   };
 
   return (
