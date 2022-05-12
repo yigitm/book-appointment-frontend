@@ -3,7 +3,8 @@ const LOGIN = 'book-appointment/features/LOGIN';
 const CREATE = 'book-appointment/features/CREATE';
 const LIST = 'book-appointment/features/LIST';
 const DEL = 'book-appointment/features/DELETE';
-/*
+/* If you wish to use locally please un-comment lines 7 to 9,
+   and remove lines 12 to 14 (only left delURL).
 const baseURL = 'http://localhost:3000/api/v1/users';
 const loginURL = 'http://localhost:3000/api/v1/login';
 const courseURL = 'http://localhost:3000/api/v1/courses';
