@@ -13,8 +13,12 @@ const UserLogin = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (state.error || !!sessionStorage.getItem('TOKEN')) setMessage(state.error);
-    if (state.user) navigate('/courses');
+    if (state.error || !!sessionStorage.getItem('TOKEN')) {
+      setMessage(state.error);
+    }
+    if (state.user) {
+      navigate('/courses');
+    }
   }, [state]);
 
   const handleLogin = (e) => {
