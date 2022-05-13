@@ -3,6 +3,7 @@ import imageDisplay from '../helper/imageDisplay';
 import Icons from '../reusables/Icons';
 import CourseText from '../reusables/CourseText';
 
+/* eslint-disable implicit-arrow-linebreak, no-confusing-arrow, react/jsx-indent, indent  */
 const Course = ({ courses }) =>
   courses.length > 0
     ? courses.map((item) => (
@@ -16,4 +17,5 @@ const Course = ({ courses }) =>
         </div>
       ))
     : null;
+/* eslint-enable implicit-arrow-linebreak, no-confusing-arrow, react/jsx-indent, indent  */
 export default Course;
