@@ -9,9 +9,14 @@ const baseURL = 'http://localhost:3000/api/v1/users';
 const loginURL = 'http://localhost:3000/api/v1/login';
 const courseURL = 'http://localhost:3000/api/v1/courses';
 */
+/*
 const baseURL = 'https://afternoon-ravine-99760.herokuapp.com/api/v1/users';
 const loginURL = 'https://afternoon-ravine-99760.herokuapp.com/api/v1/login';
 const courseURL = 'https://afternoon-ravine-99760.herokuapp.com/api/v1/courses';
+*/
+const baseURL = 'http://localhost:3000/api/v1/users';
+const loginURL = 'http://localhost:3000/api/v1/login';
+const courseURL = 'http://localhost:3000/api/v1/courses';
 const delURL = `${courseURL}/delete`;
 
 const initialState = [];
@@ -47,12 +52,10 @@ export const del = (state) => ({
 });
 
 export const postLogin = (userInputs) => async (dispatch) => {
-  TOKEN = sessionStorage.getItem('TOKEN');
   const requestOptions = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `bearer ${TOKEN}`,
     },
     body: JSON.stringify({
       user: {
@@ -63,6 +66,9 @@ export const postLogin = (userInputs) => async (dispatch) => {
   };
   const response = await fetch(loginURL, requestOptions);
   const user = await response.json();
+  sessionStorage.setItem('USER_ID', user.user.id);
+  sessionStorage.setItem('TOKEN', user.token);
+  sessionStorage.setItem('LOGIN?', true);
   dispatch(login(user));
 };
 
@@ -81,6 +87,7 @@ export const postSignUp = (userInputs) => async (dispatch) => {
   };
   const response = await fetch(baseURL, requestOptions);
   const user = await response.json();
+  sessionStorage.setItem('USER_ID', user.user.id);
   sessionStorage.setItem('TOKEN', user.token);
   sessionStorage.setItem('LOGIN?', true);
   dispatch(signUp(user));
@@ -120,7 +127,14 @@ export const getList = async (dispatch) => {
   };
   const response = await fetch(courseURL, requestOptions);
   const courses = await response.json();
-  dispatch(list(courses));
+  let filteredCourses = [];
+
+  courses.filter((item) => {
+    parseInt(sessionStorage.getItem('USER_ID')) === item['user_id']
+      ? filteredCourses.push(item)
+      : null;
+  });
+  dispatch(list(filteredCourses));
 };
 
 export const delCourse = (data) => async (dispatch) => {
