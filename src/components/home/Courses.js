@@ -44,13 +44,13 @@ const Courses = () => {
             >
               <SlideRight />
               <Course courses={state} />
+              <NoCourse courses={state} />
               <TokenCheck />
               <SlideLeft />
             </div>
           </div>
         </div>
       </div>
-      <NoCourse courses={state} />
     </div>
   );
 };
