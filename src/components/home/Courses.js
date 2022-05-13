@@ -7,7 +7,6 @@ import SlideRight from './SlideRight';
 import LoginCheck from '../reusables/LoginCheck';
 import TokenCheck from './TokenCheck';
 import NoCourse from './NoCourse';
-// import CourseCheck from '../helper/CourseCheck';
 import { getList } from '../../redux/features';
 
 const Courses = () => {
@@ -19,16 +18,6 @@ const Courses = () => {
       dispatch(getList);
     }
   }, []);
-
-  const courseCheck = () => {
-    state.map((course) => {
-      parseInt(sessionStorage.getItem('USER_ID')) === course.user_id ? (
-        <div>
-          <img className="w-full" src={plane} alt="/" />
-        </div>
-      ) : null;
-    });
-  };
 
   return (
     <div className="h-screen md:w-3/4 z-0">
