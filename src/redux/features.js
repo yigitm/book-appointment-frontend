@@ -129,9 +129,11 @@ export const getList = async (dispatch) => {
   const courses = await response.json();
   const filteredCourses = [];
   /* eslint-disable no-unused-expressions, radix */
-  courses.filter((item) => (parseInt(sessionStorage.getItem('USER_ID')) === item.user_id
-    ? filteredCourses.push(item)
-    : null));
+  courses.filter((item) =>
+    parseInt(sessionStorage.getItem('USER_ID')) === item.user_id
+      ? filteredCourses.push(item)
+      : null,
+  );
   /* eslint-enable no-unused-expressions, radix */
   dispatch(list(filteredCourses));
 };
