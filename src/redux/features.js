@@ -128,13 +128,13 @@ export const getList = async (dispatch) => {
   const response = await fetch(courseURL, requestOptions);
   const courses = await response.json();
   const filteredCourses = [];
-  /* eslint-disable no-unused-expressions, radix */
+  /* eslint-disable no-unused-expressions, radix, no-confusing-arrow, implicit-arrow-linebreak, function-paren-newline */
   courses.filter((item) =>
     parseInt(sessionStorage.getItem('USER_ID')) === item.user_id
       ? filteredCourses.push(item)
       : null,
   );
-  /* eslint-enable no-unused-expressions, radix */
+  /* eslint-disable no-unused-expressions, radix, no-confusing-arrow, implicit-arrow-linebreak, function-paren-newline */
   dispatch(list(filteredCourses));
 };
 
