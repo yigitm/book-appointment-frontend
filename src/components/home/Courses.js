@@ -5,7 +5,6 @@ import Course from './Course';
 import SlideLeft from './SlideLeft';
 import SlideRight from './SlideRight';
 import LoginCheck from '../reusables/LoginCheck';
-import TokenCheck from './TokenCheck';
 import NoCourse from './NoCourse';
 import { getList } from '../../redux/features';
 
@@ -15,6 +14,10 @@ const Courses = () => {
 
   useEffect(() => {
     if (sessionStorage['LOGIN?'] !== undefined) {
+      dispatch(getList);
+    }
+
+    if (sessionStorage.TOKEN !== undefined) {
       dispatch(getList);
     }
   }, []);
@@ -34,7 +37,6 @@ const Courses = () => {
               <SlideRight />
               <Course courses={state} />
               <NoCourse courses={state} />
-              <TokenCheck />
               <SlideLeft />
             </div>
           </div>
