@@ -9,14 +9,10 @@ const baseURL = 'http://localhost:3000/api/v1/users';
 const loginURL = 'http://localhost:3000/api/v1/login';
 const courseURL = 'http://localhost:3000/api/v1/courses';
 */
-/*
+
 const baseURL = 'https://afternoon-ravine-99760.herokuapp.com/api/v1/users';
 const loginURL = 'https://afternoon-ravine-99760.herokuapp.com/api/v1/login';
 const courseURL = 'https://afternoon-ravine-99760.herokuapp.com/api/v1/courses';
-*/
-const baseURL = 'http://localhost:3000/api/v1/users';
-const loginURL = 'http://localhost:3000/api/v1/login';
-const courseURL = 'http://localhost:3000/api/v1/courses';
 const delURL = `${courseURL}/delete`;
 
 const initialState = [];
