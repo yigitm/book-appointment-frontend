@@ -1,5 +1,5 @@
 import React from 'react';
-import cabin from '../../../src/images/cabin.png';
+import cabin from '../../images/cabin.png';
 
 const CabinImg = () => (
   <img

@@ -22,7 +22,7 @@ const Courses = () => {
   return (
     <div className="h-screen md:w-3/4 z-0">
       <div className="my-44">
-        <Header style={'text-5xl'} />
+        <Header styles="text-5xl" />
         <LoginCheck />
 
         <div className="flex items-center justify-between">

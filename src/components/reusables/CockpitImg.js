@@ -1,5 +1,5 @@
 import React from 'react';
-import cockpit from '../../../src/images/cockpit.png';
+import cockpit from '../../images/cockpit.png';
 
 const CockpitImg = () => (
   <img

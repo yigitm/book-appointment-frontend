@@ -15,14 +15,14 @@ const CourseMob = () => {
 
   return state.length > 0
     ? state.map((course) => (
-        <div key={course.id} className="flex flex-col courses-center px-3">
-          <div className="mb-3 cursor-pointer hover:scale-105 ease-in-out duration-300">
-            {imageDisplay(course)}
-            <CourseText singleCourse={course} />
-            <Icons />
-          </div>
+      <div key={course.id} className="flex flex-col courses-center px-3">
+        <div className="mb-3 cursor-pointer hover:scale-105 ease-in-out duration-300">
+          {imageDisplay(course)}
+          <CourseText singleCourse={course} />
+          <Icons />
         </div>
-      ))
+      </div>
+    ))
     : null;
 };
 export default CourseMob;
