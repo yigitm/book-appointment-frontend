@@ -127,10 +127,10 @@ export const getList = async (dispatch) => {
   };
   const response = await fetch(courseURL, requestOptions);
   const courses = await response.json();
-  let filteredCourses = [];
+  const filteredCourses = [];
 
   courses.filter((item) => {
-    parseInt(sessionStorage.getItem('USER_ID')) === item['user_id']
+    parseInt(sessionStorage.getItem('USER_ID')) === item.user_id
       ? filteredCourses.push(item)
       : null;
   });

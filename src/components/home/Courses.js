@@ -7,7 +7,7 @@ import SlideRight from './SlideRight';
 import LoginCheck from '../reusables/LoginCheck';
 import TokenCheck from './TokenCheck';
 import NoCourse from './NoCourse';
-//import CourseCheck from '../helper/CourseCheck';
+// import CourseCheck from '../helper/CourseCheck';
 import { getList } from '../../redux/features';
 
 const Courses = () => {
