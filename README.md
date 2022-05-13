@@ -28,9 +28,13 @@ Original design is belongs to: [Murat Korkmaz](https://www.behance.net/muratk).
 - Tailwind
 - Jest for testing
 
-## Live Demo (if available)
+## Live Demo
 
-[Live Demo Link](https://nimble-hummingbird-7623a3.netlify.app)
+React Frontend : [Live Demo Link](https://warm-smakager-3f854a.netlify.app/)
+
+Rails Backend : [Live Demo Link](https://afternoon-ravine-99760.herokuapp.com/api-docs/index.html)
+
+Rails Backend : [Repository Link](https://github.com/yigitm/book-appointment/dev)
 
 ## Getting Started
 
