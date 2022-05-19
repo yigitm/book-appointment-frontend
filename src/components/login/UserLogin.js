@@ -81,7 +81,7 @@ const UserLogin = () => {
             to="/"
             className="ml-5 text-xs underline underline-offset-2 decoration-solid hover:text-lime-600 italic"
           >
-            Can&apost logged in go for Sign Up
+            Can&apos;t logged in go for Sign Up
           </Link>
           <Link to="/courses" className="ml-5 text-gray-600">
             Go Back
