@@ -6,7 +6,7 @@ This React front end project is a simple course app with basic functionalities a
 
 ![App Screenshot](src/images/app.gif)
 
-For the learning purpose and to undestand better what is going on under the hood; no packages is used e.g; O-AUTH, JWT for client side. Session storage is used to save token & login status.
+For the learning purpose and to understand better what is going on under the hood; no packages is used e.g; O-AUTH, JWT for client side. Session storage is used to save token & login status.
 
 Main functionalities are:
 
