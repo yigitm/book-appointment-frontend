@@ -32,7 +32,7 @@ Original design is belongs to: [Murat Korkmaz](https://www.behance.net/muratk).
 
 React Frontend : [Live Demo Link](https://warm-smakager-3f854a.netlify.app/)
 
-Rails Backend : [Live Demo Link](https://afternoon-ravine-99760.herokuapp.com/api-docs/index.html)
+Rails Backend : [Live Demo Link](https://dark-flower-106.fly.dev/api-docs/index.html)
 
 Rails Backend : [Repository Link](https://github.com/yigitm/book-appointment/dev)
 
